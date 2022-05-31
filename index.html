@@ -1,7 +1,35 @@
 <!DOCTYPE html>
-<!-- saved from url=(0038)http://xycrgl.cug.edu.cn/index/myindex -->
-<html>
-	<script id="allow-copy_script">
+<!-- saved from url=(0038)https://sdfefadfga.github.io/web1-0-1/ -->
+<html><script id="allow-copy_script">(function agent() {
+    let unlock = false
+    document.addEventListener('allow_copy', (event) => {
+      unlock = event.detail.unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = (e) => {
+      if (unlock) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach((evt) => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script id="allow-copy_script">
 		(function agent() {
     let unlock = false
     document.addEventListener('allow_copy', (event) => {
@@ -33,13 +61,12 @@
     })
 })()
 	</script>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+		
 		<title>
 			预约审批
 		</title>
-		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"
-		name="viewport">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
 		<meta content="yes" name="apple-mobile-web-app-capable">
 		<meta content="black" name="apple-mobile-web-app-status-bar-style">
 		<meta content="telephone=no" name="format-detection">
@@ -101,29 +128,7 @@
 						<div class="tab-panel">
 							<!--全部-->
 							<div class="tab-panel-item tab-active">
-								<div class="aui-order-title" id="all">
-									<div class="aui-order-box">
-										<a href="http://xycrgl.cug.edu.cn/index/liucheng?zhaji=1" class="aui-well-item">
-											<div class="aui-well-item-bd">
-												<h3>
-													申请人：詹永宁
-												</h3>
-											</div>
-											<span class="aui-well-item-fr" style="color:#67C23A">
-												审批通过
-											</span>
-										</a>
-										<p class="aui-order-fl aui-order-time">
-											通行时间：2022-04-09 12:00:32--2022-04-10 23:00:00
-										</p>
-										<p class="aui-order-fl aui-order-address">
-											外出原因：购物
-										</p>
-										<p class="aui-order-fl aui-order-door">
-											目的地：光谷
-										</p>
-									</div>
-								</div>
+								<div class="aui-order-title" id="all"><div class="aui-order-box"><a href="http://xycrgl.cug.edu.cn/index/liucheng?zhaji=1" class="aui-well-item"><div class="aui-well-item-bd"> <h3>申请人：詹永宁</h3>  </div><span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>  </a>    <p class="aui-order-fl aui-order-time">通行时间：2022-05-31 8:00:00--2022-05-31 23:00:00</p>  <p class="aui-order-fl aui-order-address">外出原因：修理眼镜</p>   <p class="aui-order-fl aui-order-door">目的地：光谷</p>  </div></div>
 							</div>
 							<!--待审核-->
 							<div class="tab-panel-item">
@@ -159,7 +164,7 @@
 											通行时间：2022-04-09 12:00:32--2022-04-10 23:00:00
 										</p>
 										<p class="aui-order-fl aui-order-address">
-											外出原因：购物
+											外出原因：修理眼镜
 										</p>
 										<p class="aui-order-fl aui-order-door">
 											目的地：光谷
@@ -201,7 +206,7 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</div></section>
 			<!--footer class="aui-footer aui-footer-fixed">
 			<a href="javascript:;" class="aui-tabBar-item aui-tabBar-item-active">
 			<span class="aui-tabBar-item-text">预约申请</span>
@@ -237,8 +242,8 @@ function init() {
         //    }
            // hhh = hhh + '<span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>';
 			hhh = hhh + '   </a>' +
-                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'18:00:00'+ '</p>' +
-                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '购物' + '</p>' +
+                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'23:00:00'+ '</p>' +
+                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '修理眼镜' + '</p>' +
                     '   <p class="aui-order-fl aui-order-door">目的地：' + '光谷' + '</p>' +
                     '  </div>';
             var all = document.getElementById("all");
@@ -277,8 +282,8 @@ function changetab(index) {
         //    }
            // hhh = hhh + '<span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>';
 			hhh = hhh + '   </a>' +
-                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'18:00:00'+ '</p>' +
-                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '购物' + '</p>' +
+                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'23:00:00'+ '</p>' +
+                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '修理眼镜' + '</p>' +
                     '   <p class="aui-order-fl aui-order-door">目的地：' + '光谷' + '</p>' +
                     '  </div>';
             var all = document.getElementById("all");
@@ -299,8 +304,8 @@ function changetab(index) {
         //    }
            // hhh = hhh + '<span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>';
 			hhh = hhh + '   </a>' +
-                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'18:00:00'+ '</p>' +
-                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '购物' + '</p>' +
+                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'23:00:00'+ '</p>' +
+                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '修理眼镜' + '</p>' +
                     '   <p class="aui-order-fl aui-order-door">目的地：' + '光谷' + '</p>' +
                     '  </div>';
             var all = document.getElementById("all");
@@ -323,8 +328,8 @@ function changetab(index) {
         //    }
            // hhh = hhh + '<span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>';
 			hhh = hhh + '   </a>' +
-                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'18:00:00'+ '</p>' +
-                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '购物' + '</p>' +
+                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'23:00:00'+ '</p>' +
+                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '修理眼镜' + '</p>' +
                     '   <p class="aui-order-fl aui-order-door">目的地：' + '光谷' + '</p>' +
                     '  </div>';
             var s2 = document.getElementById("s2");
@@ -346,8 +351,8 @@ function changetab(index) {
         //    }
            // hhh = hhh + '<span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>';
 			hhh = hhh + '   </a>' +
-                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'18:00:00'+ '</p>' +
-                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '购物' + '</p>' +
+                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'23:00:00'+ '</p>' +
+                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '修理眼镜' + '</p>' +
                     '   <p class="aui-order-fl aui-order-door">目的地：' + '光谷' + '</p>' +
                     '  </div>';
             var all = document.getElementById("all");
@@ -369,8 +374,8 @@ function changetab(index) {
         //    }
            // hhh = hhh + '<span class="aui-well-item-fr" style="color:#67C23A">审批通过</span>';
 			hhh = hhh + '   </a>' +
-                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'18:00:00'+ '</p>' +
-                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '购物' + '</p>' +
+                    ' <p class="aui-order-fl aui-order-time">通行时间：' + getDate()+' '+'8:00:00' + '--' + getDate() +' '+'23:00:00'+ '</p>' +
+                    '  <p class="aui-order-fl aui-order-address">外出原因：' + '修理眼镜' + '</p>' +
                     '   <p class="aui-order-fl aui-order-door">目的地：' + '光谷' + '</p>' +
                     '  </div>';
             var all = document.getElementById("all");
@@ -424,6 +429,7 @@ function changetab(index) {
 
 
 		</script>
-	</body>
+	
 
-</html>
+
+</body></html>
